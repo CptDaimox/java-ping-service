@@ -51,13 +51,13 @@ public class PingService {
 
             return responseCode == HttpURLConnection.HTTP_OK;
         } catch (IOException e) {
-            throw new RuntimeException("Failed to ping URL: " + urlString, e);
+            e.printStackTrace();
+            return false;
         } finally {
             if (connection != null) {
                 connection.disconnect();
             }
         }
-
     }
 
     /**
